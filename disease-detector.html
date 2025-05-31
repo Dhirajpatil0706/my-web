@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>Disease Detector</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2a9d8f;
+      font-size: 37px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 20px;
+    }
+
+    form {
+      margin-top: 30px;
+      background-color: #8ee058;
+      padding: 25px;
+      display: inline-block;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgb(183, 241, 67);
+    }
+
+    input[type="file"] {
+      padding: 8px;
+      font-size: 15px;
+      border-radius: 6px;
+      border: 5px solid #2bc128;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      font-size: 16px;
+      color: white;
+      background-color: #264653;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1d3557;
+    }
+
+    .note {
+      color: gray;
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 25px;
+      text-decoration: none;
+      color: #2a9d8f;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h2>📷 रोग ओळख (Disease Detector)</h2>
+  <p>पिकाचा फोटो अपलोड करा – लवकरच AI आधारित रोग निदान उपलब्ध होईल.</p>
+
+  <form>
+    <input type="file" accept="image/*"><br>
+    <button type="submit">📤 फोटो अपलोड करा</button>
+  </form>
+
+  <p class="note">ℹ️ सध्या हे डेमो स्वरूप आहे. AI फीचर लवकरच जोडले जाईल.</p>
+
+  <a href="index.html">⬅️ मुख्यपृष्ठावर परत जा</a>
+</body>
+</html>

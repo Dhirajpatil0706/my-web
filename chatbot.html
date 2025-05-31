@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>Krishi Samadhan ChatBot</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .chatbot-container {
+  max-width: 420px;
+  margin: 40px auto;
+  border: 2px solid #43a047;
+  border-radius: 16px;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.chat-header {
+  background: linear-gradient(90deg, #4CAF50, #2e7d32);
+  color: white;
+  padding: 14px 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+.chat-window {
+  height: 380px;
+  padding: 14px;
+  background: #f1f8e9;
+  overflow-y: auto;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #c8e6c9;
+  background: #e8f5e9;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  font-size: 15px;
+  border-radius: 0;
+  background: transparent;
+  outline: none;
+}
+
+.chat-input button {
+  padding: 12px 20px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.chat-input button:hover {
+  background: #388e3c;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="chatbot-container">
+    <div class="chat-header">🤖 कृषी समाधान ChatBot</div>
+    <div class="chat-window" id="chat-window"></div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="तुमचा प्रश्न टाका...">
+      <button onclick="sendMessage()">📨</button>
+    </div>
+  </div>
+
+  <script>
+    let faqData = [];
+
+    async function loadData() {
+      try {
+        const res = await fetch("data/faq.json");
+        faqData = await res.json();
+      } catch (err) {
+        console.error("डेटा लोड करण्यात त्रुटी:", err);
+      }
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("user-input");
+      const msg = input.value.trim();
+      if (msg === "hii") return;
+
+      appendMessage("🧑‍🌾 तुम्ही:", msg);
+      input.value = "";
+
+      let reply = "🙏 माफ करा, मला माहिती नाही.";
+
+      for (let item of faqData) {
+        if (msg.includes(item.question)) {
+          reply = item.answer;
+          break;
+        }
+      }
+
+      setTimeout(() => appendMessage("🤖 बॉट:", reply), 500);
+    }
+
+    function appendMessage(sender, text) {
+      const chatWindow = document.getElementById("chat-window");
+      chatWindow.innerHTML += `<p><strong>${sender}</strong> ${text}</p>`;
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    loadData();
+  </script>
+
+</body>
+</html>

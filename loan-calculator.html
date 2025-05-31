@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f8f4;
+      padding: 200px;
+      text-align: center;
+      margin: 0;
+    }
+
+    h2 {
+      color: #1b4332;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      padding: 30px;
+      font-size: 20px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 2px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #2d6a4f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1b4332;
+    }
+
+    #result {
+      font-size: 18px;
+      color: #064420;
+      margin-top: 20px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 25px;
+      text-decoration: none;
+      color: #2d6a4f;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <script>
+    function calculateLoan() {
+      let land = parseFloat(document.getElementById("land").value);
+      if (isNaN(land) || land <= 0) {
+        document.getElementById("result").innerText = "कृपया वैध जमीन क्षेत्र प्रविष्ट करा.";
+        return;
+      }
+      let amount = land * 15000; // ₹15,000 per acre estimate
+      document.getElementById("result").innerText = "अंदाजित कर्ज: ₹" + amount.toLocaleString('en-IN');
+    }
+  </script>
+</head>
+<body>
+  <h2>🧮 कर्ज कॅल्क्युलेटर</h2>
+  <p>तुमचं जमीन क्षेत्र (एकर मध्ये) लिहा:</p>
+  <input type="number" id="land" placeholder="उदा: 3">
+  <br>
+  <button onclick="calculateLoan()">माहिती मिळवा</button>
+  <p id="result"></p>
+
+  <a href="index.html">⬅️ मुख्यपृष्ठावर परत जा</a>
+</body>
+</html>

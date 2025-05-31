@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>Language Switch</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      padding: 250px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2a9d8f;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 17px;
+      color: #333;
+    }
+
+    select {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    #lang-msg {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #2a9d8f;
+      font-size: 16px;
+    }
+
+
+    .lang-box {
+      background: white;
+      display: inline-block;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+     
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-box">
+    <h2>🌐 भाषा निवडा</h2>
+    <p>कृपया तुमची आवडती भाषा निवडा:</p>
+
+    <select onchange="changeLang(this.value)">
+      <option value="">-- भाषा निवडा --</option>
+      <option value="marathi">मराठी</option>
+      <option value="english">English</option>
+    </select>
+
+    <p id="lang-msg"></p>
+  </div>
+
+  <a href="index.html">⬅️ मुख्यपृष्ठावर परत जा</a>
+
+  <script>
+    function changeLang(lang) {
+      let msg = lang === "marathi" 
+        ? "✅ भाषा मराठी निवडली आहे. संपूर्ण UI लवकरच मराठीत उपलब्ध होईल." 
+        : lang === "english"
+          ? "✅ English selected. Full UI will be available soon."
+          : "";
+      document.getElementById("lang-msg").innerText = msg;
+    }
+  </script>
+</body>
+</html>
