@@ -1,0 +1,270 @@
+/* General body styles */
+/*body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: ;
+  background: url('../images/farm-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #e9b425, #2E7D32);
+  padding-top: 25px;
+  transition: 0.3s;
+  box-shadow: 2px 0px 8px rgba(224, 251, 25, 0.895);
+  z-index: 10;
+}
+
+.sidebar-header {
+  padding: 15px;
+  color: rgb(148, 145, 145);
+  font-size: 26px;
+  text-align: center;
+  background-color: #1B5E20;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 10;
+}
+
+.sidebar ul li {
+  padding: 10px 1px;
+}
+
+.sidebar ul li a {
+  color: rgb(204, 213, 204);
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar ul li a:hover {
+  background-color: rgb(97, 214, 39);
+  border-radius: 10px;
+}
+
+/* Add farm/plant icons via emojis or fontawesome */
+.sidebar ul li a::before {
+  content: '🌿';
+  font-size: 25px;
+}
+
+/* Main content styles */
+.main-content {
+  margin-left: 241px;
+  padding: 20px;
+  background: 
+    linear-gradient(rgba(233, 168, 168, 0.605), rgba(26, 4, 4, 0.586)),
+    url('../images/farm-bg.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: url('images/plant-card-bg.JPG') no-repeat center;
+  background-size: cover;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(239, 239, 43, 0.981);
+  width: 20%;
+  color: rgb(0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(3px);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  background: rgba(0, 100, 0, 0.4);
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+}
+
+.card h3,
+.card a {
+  position: relative;
+  z-index: 2;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  background-color: #43a745a6;
+  padding: 10px 15px;
+  color: #a9fb83;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.card a:hover {
+  background-color: #3c8233;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: rgb(16, 1, 1);
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+
+  .sidebar.open {
+    width: 200px;
+    transition: 0.3s;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .main-content.shifted {
+    margin-left: 200px;
+    transition: 0.3s;
+  }
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: #8fb530;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  font-weight: 500;
+}
+
+/* Weather box styling */
+#weather-box {
+  background: linear-gradient(135deg, #104e74, #e8f5e9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 100, 0, 0.1);
+  font-weight: bold;
+}
+
+/* ChatBot Styles */
+.chatbot-container {
+  max-width: 400px;
+  margin: 40px auto;
+  border: 2px solid #328536;
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: 'Arial';
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+
+.chat-header {
+  background-color: #4b8c4e;
+  color: white;
+  padding: 14px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.chat-window {
+  height: 350px;
+  padding: 10px;
+  background: #efd61952;
+  overflow-y: auto;
+  font-size: 15px;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #62db57;
+  background: #dcc37b60;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  font-size: 15px;
+}
+
+.chat-input button {
+  padding: 12px 18px;
+  border: none;
+  background: #2c7c30;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #060e06;
+}
+
+/* Social Icons */
+.social a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.social a:hover {
+  color: #459247;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
+
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
