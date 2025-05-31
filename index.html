@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>ShetiSathi - Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ✅ SIDEBAR START -->
+  <div class="sidebar">
+    <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+    <div class="sidebar-header">🌾 ShetiSathi</div>
+    
+    <ul>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="agri-calendar.html">📅 Agri Calendar</a></li>
+      <li><a href="loan-calculator.html">🧮 Loan Calculator</a></li>
+      <li><a href="ask-expert.html">💬 Ask Expert</a></li>
+      <li><a href="disease-detector.html">📷 Disease Detector</a></li>
+      <li><a href="chatbot.html">🤖 Krishi ChatBot</a></li>
+      <li><a href="language-switch.html">🌐 Language</a></li>
+    
+    
+    </ul>
+  </div>
+  <!-- ✅ SIDEBAR END -->
+
+  <!-- ✅ MAIN CONTENT -->
+  <div class="main-content">
+    <h2>ShetiSathi पोर्टलमध्ये तुमचं स्वागत आहे!</h2>
+    <p>तुमचं शेतीसंबंधी सर्व प्रश्नांसाठी ChatBot वापरा!</p>
+
+    <div class="dashboard">
+      <div class="card">
+        <h3>📅 Agri Calendar</h3>
+        <p>Season-wise tasks & crop plans.</p>
+        <a href="agri-calendar.html">View</a>
+      </div>
+    
+      <div class="card">
+        <h3>💰 Loan Calculator</h3>
+        <p>Calculate your EMI & interest.</p>
+        <a href="loan-calculator.html">Try Now</a>
+      </div>
+    
+      <div id="weather-box" class="card">
+        <h3>☁️ Weather</h3>
+        <p id="weather-data">Loading weather data...</p>
+      </div>
+
+      <div class="card">
+        <h3>🤖 Krishi ChatBot</h3>
+        <p>तुमच्या शेती समस्यांसाठी AI बॉट.</p>
+        <a href="chatbot.html">Start Chat</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ FOOTER START -->
+  <footer>
+    <p>© 2025 ShetiSathi. Developed by Dhiraj 🚀</p>
+  </footer>
+  <!-- ✅ FOOTER END -->
+
+  <!-- ✅ TOGGLE JS -->
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.main-content');
+
+    sidebar.classList.toggle('open');
+    content.classList.toggle('shifted');
+  }
+</script>
+
+
+  <script>
+    async function getWeather() {
+      const apiKey = "911b3e67bbcb99ba2b0e81b2da6fec39"; // इथे तुझा API key टाक
+      const city = "Pune"; // तू गावाचं नाव बदलू शकतो – "Nashik", "Kolhapur" etc.
+
+      try {
+        const res = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+        );
+        const data = await res.json();
+
+        const temp = data.main.temp;
+        const desc = data.weather[0].description;
+        const location = data.name;
+
+        document.getElementById("weather-data").textContent =
+          `📍 ${location}: ${temp}°C, ${desc}`;
+      } catch (err) {
+        document.getElementById("weather-data").textContent = "Error fetching weather ❌";
+        console.error(err);
+      }
+    }
+
+    // Call function when page loads
+    getWeather();
+  </script>
+
+</body>
+</html>
